@@ -68,13 +68,7 @@ def keka_logout():
     location_request_button.click()
     print('Rejected location request')
 
-    time.sleep(15)
-    print('Successfully logged out')
-    f = open("status_storage.txt", "w")
-    f.write("True")
-    f.close()
-
-    time.sleep(20)
+    time.sleep(5)
     print(time.strftime("Cron Successfully ran last at: " + "%Y-%m-%d %H:%M"))
     browser.quit()
 

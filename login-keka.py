@@ -10,11 +10,6 @@ EMAIL = os.getenv('EMAIL')
 PASSWORD = os.getenv('PASSWORD')
 print(EMAIL)
 
-# Using this to check if its the first time of the day or not
-# Default initiated with True.
-# f = open("status_storage.txt", "r")
-# status = f.read()
-
 # instantiate a chrome options object so you can set the size and headless preference
 chrome_options = Options()
 chrome_options.add_argument("--headless")
@@ -67,26 +62,8 @@ def keka_login():
     location_request_button.click()
     print('Location Request Declined')
 
-
-    # if status == 'True':
-    #     note_text_area = browser.find_element('xpath', '//*[@id="ng-app"]/body/div[1]/div/div/div[2]/form/div[1]/div/textarea')
-    #     note_text_area.send_keys("Starting now")
-    #     print('Entered Description')
-
-
-    #     time.sleep(5)
-
-    #     request_button = browser.find_element('xpath','//*[@id="ng-app"]/body/div[1]/div/div/div[2]/form/div[2]/div/div/input[1]')
-    #     request_button.click()
-    #     print('Clicked Request Button')
-
-
     time.sleep(5)
     print('Successfully logged in')
-    # f.close()
-    # f = open("status_storage.txt", "w")
-    # f.write("False")
-    # f.close()
     print(time.strftime("Cron Successfully ran last at: " + "%Y-%m-%d %H:%M"))
     browser.quit()
 
