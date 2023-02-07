@@ -37,14 +37,15 @@ def keka_logout():
     email.send_keys(EMAIL) # Enter your email here
     print('Email Entered')
 
+    continue_button = browser.find_element('xpath', '/html/body/div/div[2]/div[1]/div[2]/form[1]/div/button')
+    continue_button.click()
+    print('Continue Button clicked')
+
     password = browser.find_element('id','password')
     password.send_keys(PASSWORD) # Enter your password here
     print('Password Entered')
 
-
-    time.sleep(5)
-
-    login_button = browser.find_element('xpath','//*[@id="login-container-center"]/div/div/form/div/div[4]/div/button[1]')
+    login_button = browser.find_element('xpath','/html/body/div/div[2]/div[1]/div[2]/form/div/button')
     login_button.click()
     print('Login Button Clicked')
 
