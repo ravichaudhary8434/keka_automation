@@ -1,7 +1,8 @@
 import time
 import os
 from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.options import Options
 from dotenv import load_dotenv
 load_dotenv()
@@ -25,7 +26,7 @@ chrome_driver = os.getcwd() + "/chromedriver"
 print(chrome_driver)
 
 def keka_logout():
-    browser = webdriver.Chrome(chrome_options=chrome_options, executable_path=chrome_driver)
+    browser = webdriver.Chrome(service=Service(ChromeDriverManager().install()), chrome_options=chrome_options)
     print('Logout Process Started: ')
 
     browser.get("https://lcx.keka.com/#/home")
@@ -65,7 +66,8 @@ def keka_logout():
 
     time.sleep(5)
 
-    location_request_button = browser.find_element('xpath', '/html/body/modal-container/div/div/xhr-confirm-dialog/div[3]/button[1]')
+    location_request_button = browser.find_element('xpath', '/html/body/modal-container/div[2]/div/xhr-confirm-dialog/div[3]/button[1]')
+    
     location_request_button.click()
     print('Rejected location request')
 
